@@ -1,28 +1,15 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/).
- *
- * @link       http://github.com/zendframework/zf2 for the canonical source repository
- *
- * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd New BSD License
- *
- * @category   ZendService
- */
-namespace ZendServiceTest\Google\Gcm;
+
+declare(strict_types=1);
+
+namespace WebmonkeyTest\Google\Gcm;
 
 use PHPUnit\Framework\TestCase;
-use Zend\Http\Client\Adapter\Test;
-use Zend\Http\Client as HttpClient;
-use ZendService\Google\Gcm\Client;
-use ZendService\Google\Gcm\Message;
+use Laminas\Http\Client\Adapter\Test;
+use Laminas\Http\Client as HttpClient;
+use Webmonkey\Google\Gcm\Client;
+use Webmonkey\Google\Gcm\Message;
 
-/**
- * @category   ZendService
- * @group      ZendService
- * @group      ZendService_Google
- * @group      ZendService_Google_Gcm
- */
 class ClientTest extends TestCase
 {
     /**
@@ -47,15 +34,15 @@ class ClientTest extends TestCase
     protected function createJSONResponse($id, $success, $failure, $ids, $results)
     {
         return json_encode([
-            'multicast_id' => $id,
-            'success' => $success,
-            'failure' => $failure,
+            'multicast_id'  => $id,
+            'success'       => $success,
+            'failure'       => $failure,
             'canonical_ids' => $ids,
-            'results' => $results,
+            'results'       => $results,
         ]);
     }
 
-    public function setUp()
+    protected function setUp() : void
     {
         $this->httpClient = new HttpClient();
         $this->httpAdapter = new Test();
@@ -83,7 +70,7 @@ class ClientTest extends TestCase
 
     public function testGetHttpClientReturnsDefault()
     {
-        self::assertInstanceOf('Zend\Http\Client', (new Client())->getHttpClient());
+        self::assertInstanceOf(HttpClient::class, (new Client())->getHttpClient());
     }
 
     public function testSetHttpClient()

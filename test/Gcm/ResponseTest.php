@@ -1,26 +1,13 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/).
- *
- * @link       http://github.com/zendframework/zf2 for the canonical source repository
- *
- * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd New BSD License
- *
- * @category   ZendService
- */
-namespace ZendServiceTest\Google\Gcm;
+
+declare(strict_types=1);
+
+namespace WebmonkeyTest\Google\Gcm;
 
 use PHPUnit\Framework\TestCase;
-use ZendService\Google\Gcm\Message;
-use ZendService\Google\Gcm\Response;
+use Webmonkey\Google\Gcm\Message;
+use Webmonkey\Google\Gcm\Response;
 
-/**
- * @category   ZendService
- * @group      ZendService
- * @group      ZendService_Google
- * @group      ZendService_Google_Gcm
- */
 class ResponseTest extends TestCase
 {
     /**
@@ -28,7 +15,7 @@ class ResponseTest extends TestCase
      */
     private $m;
 
-    public function setUp()
+    protected function setUp() : void
     {
         $this->m = new Message();
     }
@@ -61,8 +48,8 @@ class ResponseTest extends TestCase
 
     public function testInvalidConstructorThrowsException()
     {
-        if (PHP_VERSION_ID < 70000) {
-            self::markTestSkipped('PHP 7 required.');
+        if (PHP_VERSION_ID < 70400) {
+            self::markTestSkipped('PHP 7.4 required.');
         }
 
         $this->expectException(\TypeError::class);
@@ -71,7 +58,7 @@ class ResponseTest extends TestCase
 
     public function testInvalidConstructorThrowsExceptionOnPhp7()
     {
-        if (PHP_VERSION_ID >= 70000) {
+        if (PHP_VERSION_ID >= 70400) {
             self::markTestSkipped('PHP >=5.5 required.');
         }
 

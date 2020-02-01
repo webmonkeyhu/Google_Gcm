@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file, in reverse chronological order by release.
 
-## 2.2.0 - TBD
+## 3.0.1 - TBD
 
 ### Added
 
@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file, in reverse 
 
 - Nothing.
 
-## 2.1.2 - TBD
+## 3.0.0 - 2020-02-01
 
 ### Added
 
@@ -32,7 +32,8 @@ All notable changes to this project will be documented in this file, in reverse 
 
 ### Changed
 
-- Nothing.
+- Drop Support 7.4 previous versions
+- Change `array_key_exists` to `isset`
 
 ### Deprecated
 

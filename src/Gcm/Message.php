@@ -1,25 +1,16 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/).
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- *
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- *
- * @category  ZendService
- */
-namespace ZendService\Google\Gcm;
 
-use ZendService\Google\Exception;
-use Zend\Json\Json;
+declare(strict_types=1);
+
+namespace Webmonkey\Google\Gcm;
+
+use Webmonkey\Google\Exception;
+use Laminas\Json\Json;
 
 /**
  * Google Cloud Messaging Message
  * This class defines a message to be sent
  * through the Google Cloud Messaging API.
- *
- * @category   ZendService
  */
 class Message
 {
@@ -73,7 +64,7 @@ class Message
      *
      * @param array $ids
      *
-     * @throws \ZendService\Google\Exception\InvalidArgumentException
+     * @throws \Webmonkey\Google\Exception\InvalidArgumentException
      *
      * @return Message
      */
@@ -190,7 +181,7 @@ class Message
      *
      * @param array $data
      *
-     * @throws \ZendService\Google\Exception\InvalidArgumentException
+     * @throws \Webmonkey\Google\Exception\InvalidArgumentException
      *
      * @return Message
      */
@@ -230,7 +221,7 @@ class Message
         if (! is_string($key) || empty($key)) {
             throw new Exception\InvalidArgumentException('$key must be a non-empty string');
         }
-        if (array_key_exists($key, $this->data)) {
+        if (isset($this->data[$key])) {
             throw new Exception\RuntimeException('$key conflicts with current set data');
         }
         $this->data[$key] = $value;
@@ -289,7 +280,7 @@ class Message
         if (! is_string($key) || empty($key)) {
             throw new Exception\InvalidArgumentException('$key must be a non-empty string');
         }
-        if (array_key_exists($key, $this->notification)) {
+        if (isset($this->notification[$key])) {
             throw new Exception\RuntimeException('$key conflicts with current set data');
         }
         $this->notification[$key] = $value;

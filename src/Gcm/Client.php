@@ -1,26 +1,17 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/).
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- *
- * @copyright Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- *
- * @category  ZendService
- */
-namespace ZendService\Google\Gcm;
 
-use ZendService\Google\Exception;
-use Zend\Http\Client as HttpClient;
-use Zend\Json\Json;
+declare(strict_types=1);
+
+namespace Webmonkey\Google\Gcm;
+
+use Webmonkey\Google\Exception;
+use Laminas\Http\Client as HttpClient;
+use Laminas\Json\Json;
 
 /**
  * Google Cloud Messaging Client
  * This class allows the ability to send out messages
  * through the Google Cloud Messaging API.
- *
- * @category   ZendService
  */
 class Client
 {
@@ -30,7 +21,7 @@ class Client
     const SERVER_URI = 'https://fcm.googleapis.com/fcm/send';
 
     /**
-     * @var \Zend\Http\Client
+     * @var \Laminas\Http\Client
      */
     protected $httpClient;
 
@@ -71,9 +62,9 @@ class Client
     /**
      * Get HTTP Client.
      *
-     * @throws \Zend\Http\Client\Exception\InvalidArgumentException
+     * @throws \Laminas\Http\Client\Exception\InvalidArgumentException
      *
-     * @return \Zend\Http\Client
+     * @return \Laminas\Http\Client
      */
     public function getHttpClient()
     {
@@ -88,7 +79,7 @@ class Client
     /**
      * Set HTTP Client.
      *
-     * @param \Zend\Http\Client
+     * @param \Laminas\Http\Client
      *
      * @return Client
      */
@@ -104,13 +95,13 @@ class Client
      *
      * @param Message $message
      *
-     * @throws \Zend\Json\Exception\RuntimeException
-     * @throws \ZendService\Google\Exception\RuntimeException
-     * @throws \Zend\Http\Exception\RuntimeException
-     * @throws \Zend\Http\Client\Exception\RuntimeException
-     * @throws \Zend\Http\Exception\InvalidArgumentException
-     * @throws \Zend\Http\Client\Exception\InvalidArgumentException
-     * @throws \ZendService\Google\Exception\InvalidArgumentException
+     * @throws \Laminas\Json\Exception\RuntimeException
+     * @throws \Webmonkey\Google\Exception\RuntimeException
+     * @throws \Laminas\Http\Exception\RuntimeException
+     * @throws \Laminas\Http\Client\Exception\RuntimeException
+     * @throws \Laminas\Http\Exception\InvalidArgumentException
+     * @throws \Laminas\Http\Client\Exception\InvalidArgumentException
+     * @throws \Webmonkey\Google\Exception\InvalidArgumentException
      *
      * @return Response
      */
