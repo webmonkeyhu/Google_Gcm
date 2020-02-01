@@ -1,24 +1,15 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/).
- *
- * @link       http://github.com/zendframework/zf2 for the canonical source repository
- *
- * @copyright  Copyright (c) 2005-2014 Zend Technologies USA Inc. (http://www.zend.com)
- * @license    http://framework.zend.com/license/new-bsd New BSD License
- *
- * @category   ZendService
- */
-namespace ZendService\Google\Gcm;
 
-use ZendService\Google\Exception;
+declare(strict_types=1);
+
+namespace Webmonkey\Google\Gcm;
+
+use Webmonkey\Google\Exception;
 
 /**
  * Google Cloud Messaging Response
  * This class parses out the response from
  * the Google Cloud Messaging API.
- *
- * @category   ZendService
  */
 class Response
 {
@@ -98,7 +89,7 @@ class Response
      *
      * @return Response
      *
-     * @throws \ZendService\Google\Exception\InvalidArgumentException
+     * @throws \Webmonkey\Google\Exception\InvalidArgumentException
      */
     public function __construct($response = null, Message $message = null)
     {
